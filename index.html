@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction - App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#home" class="active" onclick="showSection('home')">Home</a></li>
+            <li><a href="#about" onclick="showSection('about')">About Us</a></li>
+            <li><a href="#predict" onclick="showSection('predict')">Predict</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header-bar">
+            <div class="logo"></div>
+            <h1>Loan Approval Prediction</h1>
+        </div>
+
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Welcome</h2>
+            <div class="home-content">
+                <p>Welcome to Loan Approval Prediction, your trusted tool for assessing loan eligibility. Our platform uses advanced analytics to provide you with accurate, instant insights into your loan approval chances.</p>
+                <p>Whether you’re planning a major purchase or exploring financing options, our user-friendly interface and cutting-edge algorithms simplify the process. Make informed financial decisions with confidence—start exploring your eligibility today.</p>
+
+                <h3>How It Works</h3>
+                <p>Our tool streamlines the loan eligibility process into three simple steps: enter your personal and financial details, let our system analyze them using sophisticated predictive models, and receive your results instantly. No complex paperwork or lengthy evaluations—just clear, actionable insights.</p>
+
+                <h3>How Useful It Is</h3>
+                <p>With a prediction accuracy of over 95%, our tool provides reliable guidance for your financial planning. Whether you're an individual seeking a loan or a professional evaluating options, it offers a dependable starting point, reducing uncertainty and helping you prepare effectively.</p>
+
+                <h3>How Easy It Is</h3>
+                <p>Designed with simplicity in mind, our intuitive interface requires no technical expertise. Input your details in minutes using straightforward forms, and get results without navigating complicated systems—making financial assessment accessible to everyone.</p>
+
+                <h3>Saving Time Over Visiting Banks</h3>
+                <p>Unlike traditional methods that involve scheduling appointments, traveling to banks, and waiting days or weeks for feedback, our tool delivers predictions in under 30 seconds. Skip the hassle and get immediate answers from the comfort of your home, saving you valuable time and effort.</p>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>95%</span>
+                        <p>Prediction Accuracy</p>
+                    </div>
+                    <div class="stat-item">
+                        <span>10K+</span>
+                        <p>Users Served</p>
+                    </div>
+                    <div class="stat-item">
+                        <span>30s</span>
+                        <p>Average Prediction Time</p>
+                    </div>
+                </div>
+                <a href="#predict" class="home-cta" onclick="showSection('predict')">Get Started Now</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="predictor-section" id="about">
+            <div class="team-header">Meet Our Team</div><br>
+            <div class="container1">
+                <div class="profile" onclick="change('ganesh')">
+                    <div class="top">Ganesh M</div>
+                    <div class="back"><img src="{{ url_for('static', filename='images/ganesh.jpg') }}" alt="Ganesh M"></div>
+                </div>
+                <div class="profile" onclick="change('vinay')">
+                    <div class="top">Vinay B</div>
+                    <div class="back"><img src="{{ url_for('static', filename='images/vinay.jpg') }}" alt="Vinay B"></div>
+                </div>
+                <div class="profile" onclick="change('subhadra')">
+                    <div class="top">Subhadra</div>
+                    <div class="back"><img src="{{ url_for('static', filename='images/subhadra.jpg') }}" alt="Subhadra"></div>
+                </div>
+                <div class="profile" onclick="change('charan')">
+                    <div class="top">Charan U</div>
+                    <div class="back"><img src="{{ url_for('static', filename='images/Snapchat-1223961554.jpg') }}" alt="Charan U"></div>
+                </div>
+                <div class="profile" onclick="change('sai')">
+                    <div class="top">Sai</div>
+                    <div class="back"><img src="{{ url_for('static', filename='images/1000285452.jpg') }}" alt="Sai"></div>
+                </div>
+            </div>
+            <div class="predictor-container">
+                <div class="picture"></div>
+                <div class="content">
+                    <h2 class="name">Ganesh Mattaparthi</h2>
+                    <p class="about">Hello, my name is Ganesh Mattaparthi, and I am currently in my 3rd year of pursuing a B.Tech degree in Artificial Intelligence and Data Science at KIET College, Andhra Pradesh. I have a strong technical background, particularly in web development with skills in HTML, CSS, JavaScript, and programming in Python. Alongside my technical expertise, I take pride in my soft skills, including effective communication and problem-solving abilities. I am passionate about leveraging my skills to contribute to innovative projects and thrive in collaborative environments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Predict Section -->
+        <section id="predict">
+            <h2>Predict Your Loan Eligibility</h2>
+            <form action="/predict" method="post" class="predict-form">
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <select name="Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Married:</label>
+                    <select name="Married">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Dependents:</label>
+                    <input type="text" name="Dependents" placeholder="0, 1, 2, 3+" required>
+                </div>
+                <div class="form-group">
+                    <label>Education:</label>
+                    <select name="Education">
+                        <option value="Graduate">Graduate</option>
+                        <option value="Not Graduate">Not Graduate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Self Employed:</label>
+                    <select name="Self_Employed">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Applicant Income:</label>
+                    <input type="number" name="ApplicantIncome" required>
+                </div>
+                <div class="form-group">
+                    <label>Coapplicant Income:</label>
+                    <input type="number" name="CoapplicantIncome" required>
+                </div>
+                <div class="form-group">
+                    <label>Loan Amount:</label>
+                    <input type="number" name="LoanAmount" required>
+                </div>
+                <div class="form-group">
+                    <label>Loan Amount Term:</label>
+                    <input type="number" name="Loan_Amount_Term" required>
+                </div>
+                <div class="form-group">
+                    <label>Credit History:</label>
+                    <input type="number" name="Credit_History" min="0" max="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Property Area:</label>
+                    <select name="Property_Area">
+                        <option value="Urban">Urban</option>
+                        <option value="Semiurban">Semiurban</option>
+                        <option value="Rural">Rural</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Predict Now">
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!-- JavaScript for Section Toggling and Portfolio -->
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            document.querySelectorAll('.sidebar ul li a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
+
+            const headerBar = document.querySelector('.header-bar');
+            if (sectionId === 'about') {
+                headerBar.classList.add('hidden');
+            } else {
+                headerBar.classList.remove('hidden');
+            }
+        }
+
+        let image = document.querySelector('.picture');
+        let name = document.querySelector('.name');
+        let about = document.querySelector('.about');
+        const container = document.querySelector('.predictor-container');
+
+        function change(x) {
+            if (x === "subhadra") {
+                name.innerHTML = 'Subhadra Kothuri';
+                about.innerHTML = 'Hello, my name is Subhadra Kothuri, and I am currently in my 3rd year of pursuing a B.Tech degree in Artificial Intelligence and Data Science at KIET College, Andhra Pradesh. I have a strong technical background, particularly in web development with skills in HTML, CSS, JavaScript, and programming in Python.';
+                image.style.backgroundImage = "url('{{ url_for('static', filename='images/subhadra2.jpg') }}')";
+            } else if (x === "ganesh") {
+                name.innerHTML = 'Ganesh Mattaparthi';
+                about.innerHTML = 'Hello, my name is Ganesh Mattaparthi, and I am currently in my 3rd year of pursuing a B.Tech degree in Artificial Intelligence and Data Science at KIET College, Andhra Pradesh. I have a strong technical background, particularly in web development with skills in HTML, CSS, JavaScript, and programming in Python. Alongside my technical expertise, I take pride in my soft skills, including effective communication and problem-solving abilities. I am passionate about leveraging my skills to contribute to innovative projects and thrive in collaborative environments.';
+                image.style.backgroundImage = "url('{{ url_for('static', filename='images/ganesh2.jpg') }}')";
+            } else if (x === "charan") {
+                name.innerHTML = 'Charan Udhisa';
+                about.innerHTML = 'Hello, my name is Charan Udhisa, a 3rd-year B.Tech student at KIET College, Andhra Pradesh, with a focus on frontend development.';
+                image.style.backgroundImage = "url('{{ url_for('static', filename='images/charan2.jpg') }}')";
+            } else if (x === "sai") {
+                name.innerHTML = 'Sai';
+                about.innerHTML = 'Hello, my name is Sai, a 3rd-year B.Tech student at KIET College, Andhra Pradesh, contributing to the frontend design of this project.';
+                image.style.backgroundImage = "url('{{ url_for('static', filename='images/1000285452.jpg') }}')";
+            } else if (x === "vinay") {
+                name.innerHTML = 'Vinay Basava';
+                about.innerHTML = 'Hello, my name is Vinay Basava, a 3rd-year B.Tech student at KIET College, Andhra Pradesh, specializing in backend development.';
+                image.style.backgroundImage = "url('{{ url_for('static', filename='images/vinay.jpg') }}')";
+            }
+            
+            image.style.backgroundSize = "cover";
+            image.style.backgroundPosition = "center";
+            container.style.animation = "none";
+            container.offsetHeight; // Trigger reflow
+            container.style.animation = "con 3s forwards";
+        }
+    </script>
+</body>
+</html>

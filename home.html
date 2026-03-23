@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Approval Prediction - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="home-container">
+        <header class="home-header">
+            <h1>Loan Approval Prediction</h1>
+            <p>Assess your loan eligibility with our advanced prediction tool, designed to provide accurate and instant insights tailored to your financial profile.</p>
+        </header>
+
+        <section class="features">
+            <div class="feature-card">
+                <h3>Precision Analysis</h3>
+                <p>Our algorithm evaluates your data with industry-leading accuracy, ensuring reliable results.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Streamlined Process</h3>
+                <p>Complete the process in minutes with a simple, intuitive interface built for efficiency.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Real-Time Feedback</h3>
+                <p>Receive immediate predictions to make informed financial decisions without delay.</p>
+            </div>
+        </section>
+
+        <div class="cta">
+            <a href="{{ url_for('predictor') }}" class="cta-button">Start Predicting Now</a>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>© 2025 Loan Approval Prediction. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="mailto:support@loanpredictor.com">Contact Us</a></p>
+    </footer>
+</body>
+</html>
