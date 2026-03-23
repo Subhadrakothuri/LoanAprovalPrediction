@@ -1,0 +1,9 @@
+# Loan Approval Prediction
+A Machine Learning model to predict loan approval status using Python.
+
+## Technologies Used
+- Python, Scikit-learn, Flask, HTML, CSS
+
+## How to Run
+- Install requirements: pip install -r requirements.txt
+- Run: python app.py
